@@ -1,6 +1,6 @@
-@import  '../../styles/vars.scss';
+@import  '../styles/vars.scss';
 
-.container {
+.containerHeader {
   display: grid;
   grid-template-areas: "title mode";
   grid-template-columns: 60% 40%;
@@ -24,6 +24,9 @@
     align-items: center;
     padding: 10px 5px;
   }
+  &-dark{
+    border-color: $borders_dark;
+  }
 }
 
 .btn {
@@ -31,4 +34,16 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  background-color: transparent;
+  border: 0px;
+  border-radius: 5px;
+  &-dark{
+    color: $background_light;
+    &:hover{
+      background-color: rgba(197, 192, 192, 0.203);
+    }
+  }
+  &:hover{
+    background-color: rgba(139, 130, 130, 0.203);
+  }
 }

@@ -7,7 +7,7 @@ const MiniCssExtraxtPlugin = require('mini-css-extract-plugin');
 const nodeEnv = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  entry: './src/main.tsx',
+  entry: './index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './bundle.js',
@@ -15,8 +15,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
     alias: {
-      '@components': path.resolve(__dirname, 'src/components/'),
-      '@interfaces': path.resolve(__dirname, 'src/interfaces/'),
+      '@components': path.resolve(__dirname, './src/components/'),
+      '@interfaces': path.resolve(__dirname, './src/interfaces/'),
+      '@actions': path.resolve(__dirname, './src/actions.ts'),
     },
   },
   module: {

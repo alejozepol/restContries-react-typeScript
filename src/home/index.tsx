@@ -1,28 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import './home.module.scss';
-import Header from '@components/Header';
+import React, { useState } from 'react';
+import { InicialStateInterface } from '@interfaces/ReducesInterface';
+import { connect } from 'react-redux';
+import './home.scss';
+import { CountryInterface } from '@interfaces/CountriesInterface';
+import CardCountry from './Cardcountry';
 
-export const Home = () => {
+export interface HomeInterface {
+  isDarkMode: boolean;
+  countries: CountryInterface[];
+}
 
-  const [books, setBooks] = useState<[]>([]);
+export const Home = ({ isDarkMode, countries }:HomeInterface) => (
+  <section className='Home'>
+    <div className='Home__option'>
+      <input placeholder='Search for country...' />
+      <select>
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+    <div className='Home__detail'>
+      {countries.map((country) => (
+        <CardCountry country={country} key={country.name.common} isDarkMode={isDarkMode} />
+      ))}
+    </div>
 
-  useEffect(() => {
-    fetch('/api/books')
-      .then((_) => _.json())
-      .then(setBooks);
-  }, []);
+  </section>
+);
 
-  return (
-    <>
-      <Header title='Where in the world?' />
-      <h1>Home</h1>
-      <ul>
-        {books.map((t) => (
-          <li key={t} className='book'>{t}</li>
-        ))}
-      </ul>
-    </>
-  );
+const mapStateToProps = ({ isDarkMode, countries }: InicialStateInterface) => ({
+  isDarkMode,
+  countries,
+});
+
+const mapDispathToProps = {
 };
 
-export default Home;
+export default connect(mapStateToProps, mapDispathToProps)(Home);

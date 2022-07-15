@@ -1,2 +1,26 @@
 $borders_light : #d2d7d9;
-$borders_dark : #85929E;
+$background_light : #f2f5f7;
+$card_light : #ffffff;
+
+$borders_dark : #262a2d;
+$background_dark : #0b061e;
+$card_dark : #2b25496d;
+
+
+@mixin styleScrollY {
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    width: 2px;
+    height: 2px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    display: block;
+  }
+}

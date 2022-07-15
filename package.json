@@ -1,7 +1,7 @@
 {
   "name": "restContries",
   "version": "1.0.0",
-  "main": "src/main.tsx",
+  "main": "index.tsx",
   "homepage": "http:///",
   "scripts": {
     "build": "NODE_ENV=production webpack --mode production",

@@ -1,28 +1,48 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { connect } from 'react-redux';
+import { InicialStateInterface } from '@interfaces/ReducesInterface';
+import { getCountries } from '@actions';
+import { CountryInterface } from '@interfaces/CountriesInterface';
+import Header from './Header';
 import Detail from './detail';
 import Home from './home';
-import './styles/styles.scss';
-import { reducer } from './reducer';
+import useCountries from './hooks/useContries';
 
-const store = createStore(reducer, composeWithDevTools());
+export interface MainProps {
+  isDarkMode: boolean;
+  getCountries: (payload: CountryInterface[]) => void;
+}
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter basename='/'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/:id' element={<Detail />} />
-        </Routes>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+const Main = ({ isDarkMode, getCountries }: MainProps) => {
+  useCountries(getCountries);
+  return (
+    <section
+      className={`container ${
+        isDarkMode ? 'container-dark' : 'container-light'
+      }`}
+    >
+      <div className='container__header'>
+        <Header title='Where in the world?' />
+      </div>
+      <div className='container__detail'>
+        <BrowserRouter basename='/'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/:id' element={<Detail />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </section>
+  );
+};
+
+const mapStateToProps = ({ isDarkMode }: InicialStateInterface) => ({
+  isDarkMode,
+});
+
+const mapDispathToProps = {
+  getCountries,
+};
+
+export default connect(mapStateToProps, mapDispathToProps)(Main);

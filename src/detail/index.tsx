@@ -13,10 +13,10 @@ export const Detail = () => {
 
   return (
     <>
-     <h1>Detail</h1>
+      <h1>Detail</h1>
       <ul>
         {books.map((t) => (
-          <li key={t} className={'book'}>{t}</li>
+          <li key={t} className='book'>{t}</li>
         ))}
       </ul>
     </>
