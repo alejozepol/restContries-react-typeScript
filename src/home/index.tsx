@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './home.module.scss';
+import Header from '@components/Header';
 
 export const Home = () => {
 
@@ -13,10 +14,11 @@ export const Home = () => {
 
   return (
     <>
-     <h1>Home</h1>
+      <Header title='Where in the world?' />
+      <h1>Home</h1>
       <ul>
         {books.map((t) => (
-          <li key={t} className={'book'}>{t}</li>
+          <li key={t} className='book'>{t}</li>
         ))}
       </ul>
     </>
