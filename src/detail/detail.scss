@@ -70,6 +70,7 @@
   &__border {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     &-title {
       font-weight: bolder;
       padding-right: 10px;
@@ -91,11 +92,47 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-
+@media screen and (max-width: 1100px) {
+  .detail {
+    &__info {
+      &-name {
+      }
+      &-items {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+  }
 }
 
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 763px) {
+  .detail {
+    grid-template-areas: "action" "flag" "info" "border";
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(80px, 110px) auto;
+    &__info {
+      grid-area: info;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      &-name {
+        margin: 3% 0%;
+      }
+      &-items {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+    &__border {
+      &-title {
+        margin-top: 10px;
+        width: 100%;
+      }
+      &-item{
+        margin-top: 10px;
+      }
+    }
+  }
 
 }
 @media screen and (max-width: 426px) {
