@@ -2,6 +2,8 @@
 
 Este proyecto está diseñado para los paises consultados en la API [restcountries](https://restcountries.com/) mostrando una lista de tarjetas con informacion basica del pais. al ir al detalle podra consultar informacion mas especifica y navegar a los paises fronterizos.
 
+puedes verlo aqui https://restcontries-d45fd.web.app/
+
 ## Tecnologias
 _El cliente esta desarrollado utilizando tecnologías JavaScript principalmente React con TypeScript y consume la REST API mediante el método Fetch_
 
