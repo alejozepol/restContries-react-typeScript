@@ -1,18 +1,28 @@
 import React from 'react';
-import { render } from '@testing-library/react';x
+import { shallow } from 'enzyme';
+import ProviderMock from '../../__mocks__/ProviderMock';
+import Detail from './index';
 
-import App from '.';
-
-describe('App', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(<App />);
-
-    expect(baseElement).toBeTruthy();
+describe('Component App', () => {
+  test('Component render app', () => {
+    const app = shallow(<ProviderMock><Detail /></ProviderMock>);
+    expect(app.length).toEqual(1);
   });
-
-  it('should have a greeting as the title', () => {
-    const { getByText } = render(<App />);
-
-    expect(getByText('Welcome to parners-bussiness!')).toBeTruthy();
+/*   describe('Title', () => {
+    test('reder title', () => {
+      const title = shallow(<Detail />);
+      expect(title.find('.app__title').length).toEqual(1);
+    });
+    test("title equal to 'xkcd'", () => {
+      const title = shallow(<Detail />);
+      expect(title.find('.app__title-text').text()).toEqual('xkcd');
+    });
   });
+  describe('Content', () => {
+    test('reder content', () => {
+      const title = shallow(<Detail />);
+      expect(title.find('.app__content').length).toEqual(1);
+    });
+  }); */
 });
+

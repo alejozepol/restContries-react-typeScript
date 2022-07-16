@@ -2,3 +2,5 @@ node_modules
 yarn.lock
 *.log
 package-lock.json
+.firebase
+*.cache
