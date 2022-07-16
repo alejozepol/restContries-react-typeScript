@@ -4,18 +4,10 @@ export interface CountryInterface {
     common: string;
     official: string;
     nativeName: {
-      cha: {
+      [nativeName: string]: {
         official: string;
         common: string;
       },
-      eng: {
-        official: string;
-        common: string;
-      },
-      spa: {
-        official: string;
-        common: string;
-      }
     }
   },
   tld: string[];
@@ -84,10 +76,11 @@ export interface CountryInterface {
     latlng: number[
     ];
   };
-  postalCode: {
+  postalCode?: {
     format: string;
     regex: string;
-  }
+  },
+  borders: string[]
 }
 
 export enum RegionEnum {
@@ -97,3 +90,109 @@ export enum RegionEnum {
   Europe = 'Europe',
   Oceania = 'Oceania',
 }
+
+export const countryInit:CountryInterface = {
+  name: {
+    common: '',
+    official: '',
+    nativeName: {
+      spa: {
+        official: '',
+        common: '',
+      },
+    },
+  },
+  tld: [
+    '',
+  ],
+  cca2: '',
+  ccn3: '',
+  cca3: '',
+  cioc: '',
+  independent: false,
+  status: '',
+  unMember: false,
+  currencies: {
+    COP: {
+      name: '',
+      symbol: '',
+    },
+  },
+  idd: {
+    root: '+5',
+    suffixes: [
+      '7',
+    ],
+  },
+  capital: [
+    '',
+  ],
+  altSpellings: [
+    '',
+    '',
+    '',
+  ],
+  region: '',
+  subregion: '',
+  languages: {
+    spa: '',
+  },
+  translations: {
+    spa: {
+      official: '',
+      common: '',
+    },
+  },
+  latlng: [
+    0,
+    0,
+  ],
+  landlocked: false,
+  borders: [
+  ],
+  area: 0,
+  demonyms: {
+    eng: {
+      'f': '',
+      'm': '',
+    },
+    fra: {
+      'f': '',
+      'm': '',
+    },
+  },
+  flag: '',
+  maps: {
+    googleMaps: '',
+    openStreetMaps: '',
+  },
+  population: 0,
+  fifa: '',
+  car: {
+    signs: [
+    ],
+    side: '',
+  },
+  timezones: [
+    '',
+  ],
+  continents: [
+    '',
+  ],
+  flags: {
+    png: '',
+    svg: '',
+  },
+  coatOfArms: {
+    png: '',
+    svg: '',
+  },
+  startOfWeek: '',
+  capitalInfo: {
+    latlng: [
+      0,
+      0,
+    ],
+  },
+
+};

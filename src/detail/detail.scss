@@ -1,0 +1,92 @@
+@import '../styles/vars.scss';
+
+.detail {
+  display: grid;
+  grid-template-areas: "action action" "flag info" "flag border";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(80px, 110px) auto;
+  margin-top: 15px;
+  padding: 0 3%;
+  height: 100%;
+  &__action {
+    margin-top: 20px;
+    grid-area: action;
+    &-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: min-content;
+      border: none;
+      -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
+      box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
+      background-color: $card_light;
+      height: max-content;
+      padding: 5px 10px;
+      margin-left: 10px;
+      &-dark{
+        -webkit-box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
+        box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
+        background-color: $card_dark;
+        color: $card_light !important;
+      }
+    }
+  }
+  &__flag {
+    grid-area: flag;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    & > img {
+      width: 85%;
+    }
+  }
+  &__info {
+    grid-area: info;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    &-name {
+      margin: 3% 0%;
+    }
+    &-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0%;
+    &-title {
+      font-weight: bolder;
+      padding-right: 10px;
+      width: 150px;
+      font-family: system-ui;
+    }
+    &-value {
+      font-weight: 500;
+    }
+  }
+  &__border {
+    display: flex;
+    align-items: center;
+    &-title {
+      font-weight: bolder;
+      padding-right: 10px;
+      font-family: system-ui;
+    }
+    &-item {
+      -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
+      box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
+      background-color: $card_light;
+      height: max-content;
+      padding: 5px 10px;
+      margin-left: 10px;
+      &-dark{
+        -webkit-box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
+        box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
+        background-color: $card_dark;
+      }
+    }
+  }
+}

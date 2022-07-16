@@ -33,3 +33,7 @@
     @include styleScrollY;
   }
 }
+
+a:-webkit-any-link{
+  color: initial;
+}
