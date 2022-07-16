@@ -44,7 +44,7 @@ export const Detail = ({ country, isDarkMode, setCountry, isCountriesData, setCo
   return (
     <section className={`detail ${isDarkMode && 'detail-dark'}`}>
       <div className='detail__action'>
-        <Link to='/dashboard' className={`detail__action-btn ${isDarkMode && 'detail__action-btn-dark'}`} style={{ textDecoration: 'none' }}>
+        <Link to='/' className={`detail__action-btn ${isDarkMode && 'detail__action-btn-dark'}`} style={{ textDecoration: 'none' }}>
           <span className='material-symbols-outlined'>
             arrow_back
           </span>
@@ -58,13 +58,13 @@ export const Detail = ({ country, isDarkMode, setCountry, isCountriesData, setCo
         <h2 className='detail__info-name'>{country.name.official}</h2>
         <div className='detail__info-items'>
           <ItemDetail title='Native Name' value={Object.values(country.name.nativeName)[0].official} />
-          <ItemDetail title='Population' value={country.population} />
+          <ItemDetail title='Population' value={new Intl.NumberFormat('de-DE').format(country?.population || 0)} />
           <ItemDetail title='Region' value={country.region} />
           <ItemDetail title='Sub Region' value={country.subregion} />
-          <ItemDetail title='Capital' value={country.capital.toString()} />
-          <ItemDetail title='Top Level Domain' value={country.tld.toString()} />
-          <ItemDetail title='Currences' value={Object.keys(country.currencies).toString()} />
-          <ItemDetail title='Languages' value={Object.values(country.languages).toString()} />
+          <ItemDetail title='Capital' value={(country.capital || []).toString()} />
+          <ItemDetail title='Top Level Domain' value={(country?.tld || []).toString()} />
+          <ItemDetail title='Currences' value={Object.keys(country?.currencies || {}).toString()} />
+          <ItemDetail title='Languages' value={Object.values(country.languages || {}).toString()} />
         </div>
       </div>
       <div className='detail__border'>
@@ -73,7 +73,7 @@ export const Detail = ({ country, isDarkMode, setCountry, isCountriesData, setCo
         </p>
 
         {
-          country.borders.map((item) => (
+          (country.borders || []).map((item) => (
 
             <p key={item} className={`detail__border-item ${isDarkMode && 'detail__border-item-dark'}`}>
               {

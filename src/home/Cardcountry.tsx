@@ -25,7 +25,7 @@ const CardCountry = ({ country, isDarkMode }: CardcountryProps) => (
       </div>
       <h3 className='CardCountry__name'>{country.name.official}</h3>
       <div className='CardCountry__detail'>
-        <ItemDetail title='Population' value={country.population} />
+        <ItemDetail title='Population' value={new Intl.NumberFormat('de-DE').format(country?.population || 0)} />
         <ItemDetail title='Region' value={country.region} />
         <ItemDetail title='Capital' value={(country.capital || [])[0]} />
       </div>

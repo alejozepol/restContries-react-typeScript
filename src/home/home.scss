@@ -1,4 +1,4 @@
-@import '../styles/vars.scss';
+@import "../styles/vars.scss";
 
 .CardCountry {
   align-self: center;
@@ -9,9 +9,11 @@
   grid-template-columns: 100%;
   background-color: $card_light;
   border-radius: 5px;
-  width: 100%;
-  &-dark{
+  width: 320px;
+  height: 440px;
+  &-dark {
     background-color: $card_dark;
+    color: $card_light;
   }
   &__img {
     grid-area: img;
@@ -24,7 +26,7 @@
     & > img {
       height: 100%;
       width: 100%;
-      }
+    }
   }
   &__name {
     grid-area: name;
@@ -45,72 +47,118 @@
 .Home {
   margin-top: 15px;
   padding: 0 3%;
- &__detail{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: space-between;
-  justify-items: center;
-  align-items: center;
-  column-gap: 4%;
-  row-gap: 5px;
- }
- &__option {
-  display: grid;
-  justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  grid-template-columns: 1fr 1fr;
-  &-input {
+  &__detail {
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    justify-items: center;
     align-items: center;
-    padding: 10px;
-    -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
-    box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
-    background-color: $card_light;
-    border-radius: 3px;
-    width: 70%;
-    & > .material-symbols-outlined {
+    column-gap: 18px;
+    row-gap: 5px;
+  }
+  &__option {
+    display: grid;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    grid-template-columns: 1fr 1fr;
+    &-input {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      align-items: center;
+      padding: 10px;
+      -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light,
+        1px 1px 20px 4px $borders_light;
+      box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px $borders_light;
+      background-color: $card_light;
+      border-radius: 3px;
+      width: 70%;
+      & > .material-symbols-outlined {
         justify-self: center;
+      }
+      & > input {
+        border: none;
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        &:focus {
+          outline: none;
+        }
+      }
+      &-dark {
+        -webkit-box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark,
+          1px 1px 20px 4px $borders_dark;
+        box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px $borders_dark;
+        background-color: $card_dark;
+        & > input {
+          color: $card_light;
+        }
+        & > input::placeholder {
+          color: $card_light;
+        }
+      }
     }
-    & > input {
+    &-select {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      padding: 10px;
+      -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light,
+        1px 1px 20px 4px $borders_light;
+      box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px $borders_light;
+      background-color: $card_light;
+      border-radius: 3px;
+      width: 30%;
+      justify-self: end;
       border: none;
-      background-color: transparent;
-      height: 100%;
-      width: 100%;
-    }
-    &-dark{
-      -webkit-box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
-      box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
-      background-color: $card_dark;
-
-      & > input::placeholder{
+      & > select {
+        border: none;
+        background-color: transparent;
+      }
+      &-dark {
+        -webkit-box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark,
+          1px 1px 20px 4px $borders_dark;
+        box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px $borders_dark;
+        background-color: $card_dark;
         color: $card_light;
       }
     }
   }
-  &-select {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    padding: 10px;
-    -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
-    box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
-    background-color: $card_light;
-    border-radius: 3px;
-    width: 30%;
-    justify-self: end;
-    border: none;
-    & > select {
-      border: none;
-      background-color: transparent;
-    }
-    &-dark{
-      -webkit-box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
-      box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
-      background-color: $card_dark;
-      color:$card_light ;
+}
+
+@media screen and (max-width: 1390px) {
+  .Home {
+    &__detail {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
- }
+}
+@media screen and (max-width: 1024px) {
+  .Home {
+    &__detail {
+      grid-template-columns: 1fr 1fr;
+    }
+    &__option {
+      display: grid;
+      justify-content: space-between;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      grid-template-columns: 100%;
+      grid-template-rows: 1fr 1fr;
+      &-input {
+        width: 97%;
+      }
+      &-select {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 689px) {
+  .Home {
+    &__detail {
+      grid-template-columns: 1fr;
+    }
+  }
 }
