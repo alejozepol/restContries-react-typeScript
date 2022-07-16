@@ -6,6 +6,8 @@ export const inicialState:InicialStateInterface = {
   countries: [] as CountryInterface[],
   countriesData: [] as CountryInterface[],
   country: {} as CountryInterface,
+  inputSearch: '',
+  regionSelect: '',
 };
 
 // eslint-disable-next-line default-param-last
@@ -22,6 +24,81 @@ export function reducer(state = inicialState, action:ActionInterface) {
         ...state,
         countries: action?.payload || [],
         countriesData: action?.payload || [],
+      } as InicialStateInterface;
+    }
+    case 'SET_COUNTRIES_REGION': {
+      if (action.payload !== '' && state.inputSearch === '') {
+        return {
+          ...state,
+          regionSelect: action.payload,
+          countries: state.countriesData.filter(({ region }) => region === action.payload),
+        } as InicialStateInterface;
+      }
+      if (action.payload !== '' && state.inputSearch !== '') {
+        return {
+          ...state,
+          regionSelect: action.payload,
+          countries: state.countriesData.filter((
+            { name, region },
+          ) => region === action.payload && (
+            name.common.toLocaleLowerCase().includes(state.inputSearch.toLocaleLowerCase()) ||
+            name.official.toLocaleLowerCase().includes(state.inputSearch.toLocaleLowerCase())
+          )),
+        } as InicialStateInterface;
+      }
+      if (action.payload === '' && state.inputSearch !== '') {
+        return {
+          ...state,
+          regionSelect: action.payload,
+          countries: state.countriesData.filter((
+            { name },
+          ) => name.common.toLocaleLowerCase().includes(state.inputSearch.toLocaleLowerCase()) ||
+            name.official.toLocaleLowerCase().includes(state.inputSearch.toLocaleLowerCase())),
+        } as InicialStateInterface;
+      }
+      return {
+        ...state,
+        regionSelect: action.payload,
+        countries: [...state.countriesData],
+      } as InicialStateInterface;
+    }
+    case 'SET_COUNTRIES_INPUT': {
+      if (action.payload !== '' && state.regionSelect === '') {
+        return {
+          ...state,
+          inputSearch: action.payload,
+          countries: state.countriesData.filter(
+            ({ name }) => name.common.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()) ||
+            name.official.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()),
+          ),
+        } as InicialStateInterface;
+      }
+      if (action.payload !== '' && state.regionSelect !== '') {
+        return {
+          ...state,
+          inputSearch: action.payload,
+          countries: state.countriesData.filter(
+            ({ name, region }) => (
+              name.common.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()) ||
+              name.official.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase())
+            ) &&
+            region === state.regionSelect,
+          ),
+        } as InicialStateInterface;
+      }
+      if (action.payload === '' && state.regionSelect !== '') {
+        return {
+          ...state,
+          inputSearch: action.payload,
+          countries: state.countriesData.filter(
+            ({ region }) => region === state.regionSelect,
+          ),
+        } as InicialStateInterface;
+      }
+      return {
+        ...state,
+        inputSearch: action.payload,
+        countries: [...state.countriesData],
       } as InicialStateInterface;
     }
     default:

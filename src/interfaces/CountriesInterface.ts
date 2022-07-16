@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export interface CountryInterface {
   name: {
     common: string;
@@ -87,4 +88,12 @@ export interface CountryInterface {
     format: string;
     regex: string;
   }
+}
+
+export enum RegionEnum {
+  Africa = 'Africa',
+  America = 'Americas',
+  Asia = 'Asia',
+  Europe = 'Europe',
+  Oceania = 'Oceania',
 }

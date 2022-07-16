@@ -17,7 +17,7 @@
   width: 100vw;
   display: grid;
   grid-template-areas: "header" "detail";
-  grid-template-rows: 12vh 88vh;
+  grid-template-rows: minmax(85px, 12vh) 88vh;
   &-dark {
     background-color: $background_dark;
     color: $background_light;

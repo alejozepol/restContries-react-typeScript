@@ -6,10 +6,9 @@
   grid-template-columns: 60% 40%;
   padding: 10px 10px;
   margin-bottom: 20px;
-  border-color: $borders_light;
-  border-bottom: 1px solid;
-  -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 6px -1px $borders_light ;
-  box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 6px -1px $borders_light ;
+  -webkit-box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
+  box-shadow: 0px 0px 1px -1px $borders_light, 1px 1px 1px -1px $borders_light, 1px 1px 20px 4px  $borders_light ;
+  background-color: $card_light;
   &__title {
     display: flex;
     grid-area: title;
@@ -20,12 +19,15 @@
   &__mode {
     grid-area: mode;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-    padding: 10px 5px;
+    padding: 10px 5%;
   }
   &-dark{
     border-color: $borders_dark;
+    -webkit-box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
+    box-shadow: 0px 0px 1px -1px $borders_dark, 1px 1px 1px -1px $borders_dark, 1px 1px 20px 4px  $borders_dark ;
+    background-color: $card_dark;
   }
 }
 
