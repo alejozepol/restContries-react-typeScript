@@ -57,20 +57,38 @@
     display: flex;
     align-items: center;
     padding: 5px 0%;
+    &.language {
+      // flex-direction: column;
+    }
+    .language &-title {
+      align-self: flex-start;
+    }
     &-title {
       font-weight: bolder;
       padding-right: 10px;
-      width: 150px;
+      width: 100px;
       font-family: system-ui;
     }
     &-value {
       font-weight: 500;
+      max-width: 150px;
+      word-spacing: 10px;
+
+    }
+    &-language{
+      display: flex;
+      flex-wrap: wrap;
+      & > p{
+        margin-right: 8px;
+      }
     }
   }
   &__border {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-self: start;
     &-title {
       font-weight: bolder;
       padding-right: 10px;
@@ -99,7 +117,7 @@
       }
       &-items {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
     }
   }

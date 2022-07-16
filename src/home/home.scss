@@ -9,8 +9,8 @@
   grid-template-columns: 100%;
   background-color: $card_light;
   border-radius: 5px;
-  width: 320px;
-  height: 440px;
+  width: 260px;
+  height: 400px;
   &-dark {
     background-color: $card_dark;
     color: $card_light;
@@ -31,6 +31,8 @@
   &__name {
     grid-area: name;
     padding: 10px 10px;
+    display: flex;
+    align-items: center;
   }
   &__detail {
     grid-area: detail;
@@ -136,7 +138,7 @@
 @media screen and (max-width: 1024px) {
   .Home {
     &__detail {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
     &__option {
       display: grid;
@@ -155,7 +157,14 @@
     }
   }
 }
-@media screen and (max-width: 689px) {
+@media screen and (max-width: 860px) {
+  .Home {
+    &__detail {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
   .Home {
     &__detail {
       grid-template-columns: 1fr;

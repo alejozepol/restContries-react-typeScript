@@ -100,28 +100,33 @@ export const Detail = ({
             title='Currences'
             value={Object.keys(country?.currencies || {}).toString()}
           />
-          <ItemDetail
-            title='Languages'
-            value={Object.values(country.languages || {}).toString()}
-          />
-        </div>
-      </div>
-      <div className='detail__border'>
-        <p className='detail__border-title'>Border Country:</p>
+          <div className='detail__item language'>
+            <p className='detail__item-title'>Languages:</p>
+            <div className='detail__item-language'>
+              {
+                Object.values(country.languages || {}).map((item) => (<p key={item}>{item}</p>))
+              }
+            </div>
+          </div>
 
-        {(country.borders || []).map((item) => (
-          <Link
-            to={`/${item}`}
-            key={item}
-            className={`detail__border-item ${
-              isDarkMode && 'detail__border-item-dark'
-            }`}
-          >
-            {countriesData.find(
-              (country) => country.cca3 === item || country.cioc === item,
-            )?.name.common || item}
-          </Link>
-        ))}
+        </div>
+        <div className='detail__border'>
+          <p className='detail__border-title'>Border Country:</p>
+
+          {(country.borders || []).map((item) => (
+            <Link
+              to={`/${item}`}
+              key={item}
+              className={`detail__border-item ${
+                isDarkMode && 'detail__border-item-dark'
+              }`}
+            >
+              {countriesData.find(
+                (country) => country.cca3 === item || country.cioc === item,
+              )?.name.common || item}
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
